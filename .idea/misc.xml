@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/drawable/ic_baseline_remove_circle_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/drawable/splash_screen.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/layout/fragment_chooser_game.xml" value="0.1796875" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/layout/fragment_dialog_reward.xml" value="0.1796875" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/layout/fragment_ebni_mole.xml" value="0.1796875" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/layout/fragment_find_a_couple.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/layout/fragment_game_catch_coin.xml" value="0.1796875" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/layout/fragment_games_result.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/layout/fragment_menu.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/layout/fragment_reward.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/layout/item_ads.xml" value="0.1796875" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/layout/item_alert.xml" value="0.1796875" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/layout/item_game.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Terpila/app/src/main/res/layout/item_image_view.xml" value="0.1796875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Terpila</string>
+    <string name="Terpet">Терпеть</string>
+    <string name="settings">Настройки</string>
+    <string name="exit">Выйти</string>
+    <string name="level_of_terpila">Уровень Терпилы</string>
+    <string name="_200">Стоимость просмотра 200</string>
+    <string name="terpet">Терпеть</string>
+    <string name="_20">Награда: 20 очков Терпилы</string>
+    <string name="_50">Награда: 50 очков Терпилы</string>
+    <string name="_500">Стоимссть просмотра 500</string>
+    <string name="go_to_menu">Главное меню</string>
+    <string name="current_score">Текущий счет:</string>
+    <string name="record">Рекорд:</string>
+    <string name="new_record">Новый рекорд</string>
+    <string name="you_are_dead">"Мертв "</string>
+    <string name="easy">Легко</string>
+    <string name="you_can_do_it">Ты сможешь</string>
+    <string name="hard">Тяжело</string>
+    <string name="nightmare">Кошмар</string>
+</resources>
