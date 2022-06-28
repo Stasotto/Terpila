@@ -28,7 +28,7 @@ class FindACoupleGameFragment : Fragment(R.layout.fragment_find_a_couple) {
         private const val ITEMS_COUNT = "Row"
         private const val DIFFICULTY = "Difficulty"
         const val TAG = "Find a couple"
-        fun newInstance( difficulty: String, rowCount: Int) = FindACoupleGameFragment().apply {
+        fun newInstance(difficulty: String, rowCount: Int) = FindACoupleGameFragment().apply {
             arguments = bundleOf(ITEMS_COUNT to rowCount, DIFFICULTY to difficulty)
         }
     }
@@ -43,6 +43,7 @@ class FindACoupleGameFragment : Fragment(R.layout.fragment_find_a_couple) {
     private val binding by viewBinding(FragmentFindACoupleBinding::bind)
     private val adapter by lazy { FindACoupleAdapter(onImageClick) }
     private val onImageClick: OnImageClick = object : OnImageClick {
+
         override fun setOnImageClickListener(image: FindACoupleImage, position: Int) {
             changedImageList[position] = image.copy(isClick = true)
             when (counter) {

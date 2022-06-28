@@ -17,6 +17,6 @@ fun GameEntity.toGameDomain() = GameDomain(
     name = name,
     id = id,
     isEnable = isEnable,
-    currentDifficulty =currentDifficulty,
+    currentDifficulty = currentDifficulty,
     levels = levels.fromGsonToListDifficulties()
 )

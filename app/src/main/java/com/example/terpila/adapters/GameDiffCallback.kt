@@ -6,7 +6,8 @@ import com.example.terpila.models.Game
 class GameDiffCallback(
     private val oldList: List<Game>,
     private val newList: List<Game>
-    ) : DiffUtil.Callback() {
+) : DiffUtil.Callback() {
+
     override fun getOldListSize(): Int {
         return oldList.size
     }

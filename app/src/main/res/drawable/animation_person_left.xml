@@ -2,21 +2,29 @@
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:oneshot="false">
 
-    <item android:drawable="@drawable/anim1_left"
-        android:duration="50"/>
-    <item android:drawable="@drawable/anim2_left"
-        android:duration="50"/>
-    <item android:drawable="@drawable/anim3_left"
-        android:duration="50"/>
-    <item android:drawable="@drawable/anim4_left"
-        android:duration="50"/>
-    <item android:drawable="@drawable/anim5_left"
-        android:duration="50"/>
-    <item android:drawable="@drawable/anim6_left"
-        android:duration="50"/>
-    <item android:drawable="@drawable/anim7_left"
-        android:duration="50"/>
-    <item android:drawable="@drawable/anim8_left"
-        android:duration="50"/>
+    <item
+        android:drawable="@drawable/anim1_left"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/anim2_left"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/anim3_left"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/anim4_left"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/anim5_left"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/anim6_left"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/anim7_left"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/anim8_left"
+        android:duration="50" />
 
 </animation-list>

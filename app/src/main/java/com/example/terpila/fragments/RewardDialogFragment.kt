@@ -27,11 +27,11 @@ class RewardDialogFragment : DialogFragment() {
         }
     }
 
-    private val binding by lazy { FragmentDialogRewardBinding.inflate(layoutInflater)}
-    private val mainScope by lazy { CoroutineScope(Dispatchers.Main) }
-    private val viewModel by viewModel<RewardDialogFragViewModel>()
     private var progressToAdd = 0
     private var levelOfTerpila = 0
+    private val binding by lazy { FragmentDialogRewardBinding.inflate(layoutInflater) }
+    private val mainScope by lazy { CoroutineScope(Dispatchers.Main) }
+    private val viewModel by viewModel<RewardDialogFragViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,16 +85,15 @@ class RewardDialogFragment : DialogFragment() {
     @SuppressLint("SetTextI18n")
     private fun updateUi() = with(binding) {
 
-        viewModel.level.observe(this@RewardDialogFragment, {level ->
+        viewModel.level.observe(this@RewardDialogFragment, { level ->
             levelOfTerpila = level
             levelTv.text = level.toString()
         })
-        viewModel.progress.observe(this@RewardDialogFragment, {progress ->
+        viewModel.progress.observe(this@RewardDialogFragment, { progress ->
             progressPb.progress = progress
-            progressPb.max = if(levelOfTerpila == 0) 1 * 100 else levelOfTerpila * 100
+            progressPb.max = if (levelOfTerpila == 0) 1 * 100 else levelOfTerpila * 100
             progressTv.text = "${progressPb.progress}/${progressPb.max}"
             Log.d("MyLog", progress.toString())
         })
     }
-
 }

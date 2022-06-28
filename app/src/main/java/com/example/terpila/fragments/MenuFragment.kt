@@ -22,10 +22,9 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         fun newInstance() = MenuFragment()
     }
 
-
+    private var levelOfTerpila = 0
     private val binding by viewBinding(FragmentMenuBinding::bind)
     private val viewModel: MenuFragViewModel by viewModel()
-    private var levelOfTerpila = 0
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -67,7 +66,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
 
     @SuppressLint("SetTextI18n")
     private fun updateUi() = with(binding) {
-        viewModel.level.observe(viewLifecycleOwner, {level ->
+        viewModel.level.observe(viewLifecycleOwner, { level ->
             levelOfTerpila = level
             levelTv.text = level.toString()
         })
@@ -77,9 +76,9 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
             Log.d("MyLogProggres", coins.toString())
         })
 
-        viewModel.progress.observe(viewLifecycleOwner, {progress ->
+        viewModel.progress.observe(viewLifecycleOwner, { progress ->
             progressPb.progress = progress
-            progressPb.max = if(levelOfTerpila == 0) 1 * 100 else levelOfTerpila * 100
+            progressPb.max = if (levelOfTerpila == 0) 1 * 100 else levelOfTerpila * 100
             progressTv.text = "${progressPb.progress}/${progressPb.max}"
             Log.d("MyLog", progress.toString())
         })

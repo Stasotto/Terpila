@@ -10,9 +10,9 @@ import com.example.terpila.models.Game
 class AlertDifficultyAdapter(
     private val game: Game
 ) : BaseAdapter() {
+
     override fun getCount(): Int {
         return game.levels.size
-
     }
 
     override fun getItem(position: Int): Any {
@@ -33,6 +33,5 @@ class AlertDifficultyAdapter(
         val binding = ItemAlertDifficultyBinding.inflate(LayoutInflater.from(parent?.context))
         binding.root.tag = binding
         return binding
-
     }
 }

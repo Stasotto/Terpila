@@ -16,6 +16,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
     <style name="SplashTheme" parent="Theme.AppCompat">
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>

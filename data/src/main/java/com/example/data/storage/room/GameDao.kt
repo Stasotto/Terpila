@@ -7,10 +7,13 @@ import androidx.room.Update
 
 @Dao
 interface GameDao {
+
     @Query("SELECT * FROM games")
     fun getGames(): List<GameEntity>
+
     @Insert
     fun saveGames(vararg gameEntity: GameEntity)
+
     @Update
     fun updateGame(game: GameEntity)
 }

@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.usecases.*
 import kotlinx.coroutines.launch
-import java.util.*
 
 class MenuFragViewModel(
     private val getCoinsCountUseCase: GetCoinsCountUseCase,
@@ -16,7 +15,7 @@ class MenuFragViewModel(
     private val saveLevelUseCase: SaveLevelUseCase
 ) : ViewModel() {
 
-    private val _coinsCount  = MutableLiveData<Int>()
+    private val _coinsCount = MutableLiveData<Int>()
     val coinsCount: LiveData<Int> get() = _coinsCount
 
     private val _progress = MutableLiveData<Int>()
@@ -37,18 +36,6 @@ class MenuFragViewModel(
         }
     }
 
-   private fun loadProgress() {
-        viewModelScope.launch {
-            _progress.value = getProgressUseCase.execute()
-        }
-    }
-
-    private fun loadLevel() {
-        viewModelScope.launch {
-            _level.value = getLevelUseCase.execute()
-        }
-    }
-
     fun saveProgress(progress: Int) {
         viewModelScope.launch {
             saveProgressUseCase.execute(progress)
@@ -58,6 +45,18 @@ class MenuFragViewModel(
     fun saveLevel(level: Int) {
         viewModelScope.launch {
             saveLevelUseCase.execute(level)
+        }
+    }
+
+    private fun loadProgress() {
+        viewModelScope.launch {
+            _progress.value = getProgressUseCase.execute()
+        }
+    }
+
+    private fun loadLevel() {
+        viewModelScope.launch {
+            _level.value = getLevelUseCase.execute()
         }
     }
 }

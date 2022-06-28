@@ -25,6 +25,7 @@ fun Game.toGameDomain() = GameDomain(
     }
 
 )
+
 fun GameDifficulty.toGameDifficultyDomain() = GameDifficultyDomain(
     isEnable = isEnable,
     text = text,

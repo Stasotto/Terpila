@@ -11,7 +11,7 @@ interface Navigator {
 
     fun showChooserGameFragment()
 
-    fun showCatchACoinGameFragment(difficulty: String, spawnDelay: Long )
+    fun showCatchACoinGameFragment(difficulty: String, spawnDelay: Long)
 
     fun showFindACoupleGameFragment(difficulty: String, itemsCount: Int)
 
@@ -19,7 +19,7 @@ interface Navigator {
 
     fun showSettingsFragment()
 
-    fun showEbniMoleGameFragment(difficulty: String,moleSpeed: Long)
+    fun showEbniMoleGameFragment(difficulty: String, moleSpeed: Long)
 
     fun <T> showGameResultFragment(clazz: Class<T>, difficulty: String, score: Int)
 

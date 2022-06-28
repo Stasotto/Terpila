@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.terpila.fragments.findacouplegame.models.FindACoupleImage
 
 class FindACoupleAdapter(
-    private  val imageClick: OnImageClick
+    private val imageClick: OnImageClick
 ) : RecyclerView.Adapter<FindACoupleHolder>() {
 
     private var dataList = mutableListOf<FindACoupleImage>()

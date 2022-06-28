@@ -3,10 +3,10 @@ package com.example.data.di
 
 import androidx.room.Room
 import com.example.data.storage.DatabaseStorage
+import com.example.data.storage.DatabaseStorageImpl
 import com.example.data.storage.SharedPreferences
 import com.example.data.storage.SharedPreferencesImpl
 import com.example.data.storage.room.AppDatabase
-import com.example.data.storage.DatabaseStorageImpl
 import org.koin.dsl.module
 
 val dataModule = module {
@@ -27,7 +27,7 @@ val dataModule = module {
         get<AppDatabase>().getGameDao()
     }
 
-    single<DatabaseStorage>{
+    single<DatabaseStorage> {
         DatabaseStorageImpl(gameDao = get())
     }
 

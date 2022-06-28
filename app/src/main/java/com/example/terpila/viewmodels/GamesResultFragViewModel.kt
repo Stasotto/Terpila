@@ -17,7 +17,6 @@ class GamesResultFragViewModel(
     private val saveRecordUseCase: SaveRecordUseCase
 ) : ViewModel() {
 
-
     private val _coinsCount = MutableLiveData<Int>()
     val coinsCount: LiveData<Int> get() = _coinsCount
 
@@ -31,7 +30,7 @@ class GamesResultFragViewModel(
         }
     }
 
-     fun saveCoinsCount(coins: Int) {
+    fun saveCoinsCount(coins: Int) {
         viewModelScope.launch {
             saveCoinsCountUseCase.execute(coins)
         }
@@ -42,6 +41,4 @@ class GamesResultFragViewModel(
             saveRecordUseCase.execute(className, record)
         }
     }
-
-
 }

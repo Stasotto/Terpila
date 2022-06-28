@@ -9,7 +9,7 @@ interface GetCoinsCountUseCase {
 
 class GetCoinsCountUseCaseImpl(
     private val repository: PreferencesRepository
-) : GetCoinsCountUseCase{
+) : GetCoinsCountUseCase {
 
     override suspend fun execute(): Int {
         return repository.getCoins()

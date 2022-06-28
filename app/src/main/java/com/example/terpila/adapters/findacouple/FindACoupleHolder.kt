@@ -9,11 +9,12 @@ import com.example.terpila.R
 import com.example.terpila.databinding.ItemImageViewBinding
 import com.example.terpila.fragments.findacouplegame.models.FindACoupleImage
 
-class FindACoupleHolder(item: View,
-                        private val imageClick: OnImageClick
+class FindACoupleHolder(
+    private val item: View,
+    private val imageClick: OnImageClick
 ) : RecyclerView.ViewHolder(item) {
 
-    companion object{
+    companion object {
         fun from(parent: ViewGroup, imageClick: OnImageClick) = FindACoupleHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_image_view, parent, false),
             imageClick
@@ -25,12 +26,12 @@ class FindACoupleHolder(item: View,
     fun bind(item: FindACoupleImage) = with(binding) {
         image.setImageDrawable(item.image)
         back.setImageResource(R.drawable.backimage)
-        if(item.isClick) {
+        if (item.isClick) {
             image.isVisible = true
-            back.isVisible  = false
+            back.isVisible = false
         } else {
             image.isVisible = false
-            back.isVisible  = true
+            back.isVisible = true
 
         }
         back.setOnClickListener {

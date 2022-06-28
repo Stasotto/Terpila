@@ -34,18 +34,15 @@ class CatchACoinGameFragment : Fragment(R.layout.fragment_game_catch_coin), View
         }
     }
 
+    private var currentScore = 0
+    private var spawnStateCoin = true
     private var isMovingRight = false
     private var isMovingLeft = false
     private val display = DisplayMetrics()
     private val spawnStateCor by lazy { CoroutineScope(Dispatchers.Main) }
     private val params = ConstraintLayout.LayoutParams(80, 80)
-    private var spawnStateCoin = true
     private val spawnDelay: Long
         get() = requireArguments().getLong(SPAWN_DELAY)
-
-
-    private var currentScore = 0
-
     private val animLeft by lazy {
         getDrawable(
             requireContext(),
@@ -77,13 +74,47 @@ class CatchACoinGameFragment : Fragment(R.layout.fragment_game_catch_coin), View
             R.drawable.stone,
             params
         )
-
     }
 
     override fun onPause() {
         super.onPause()
         spawnStateCor.cancel()
+    }
 
+    @SuppressLint("ClickableViewAccessibility")
+    override fun onTouch(v: View?, event: MotionEvent): Boolean {
+        when (event.actionMasked) {
+            MotionEvent.ACTION_DOWN -> {
+                Log.d("MyLog", "touch1")
+                if (event.x >= display.widthPixels / 2) {
+                    isMovingLeft = false
+                    isMovingRight = true
+                    movePlayer(animRight, MOVE_RIGHT, R.drawable.default_instance)
+                } else {
+                    isMovingRight = false
+                    isMovingLeft = true
+                    movePlayer(animLeft, MOVE_LEFT, R.drawable.default_left)
+                }
+            }
+            MotionEvent.ACTION_POINTER_DOWN -> {
+                Log.d("MyLog", "touch2, ${event.x}")
+                if (event.getX(event.actionIndex) >= display.widthPixels / 2) {
+                    isMovingLeft = false
+                    isMovingRight = true
+                    movePlayer(animRight, MOVE_RIGHT, R.drawable.default_instance)
+                } else {
+                    isMovingRight = false
+                    isMovingLeft = true
+                    movePlayer(animLeft, MOVE_LEFT, R.drawable.default_left)
+                }
+            }
+            MotionEvent.ACTION_UP -> {
+                Log.d("MyLog", "touch Up")
+                isMovingLeft = false
+                isMovingRight = false
+            }
+        }
+        return true
     }
 
     private fun spawn(
@@ -182,43 +213,4 @@ class CatchACoinGameFragment : Fragment(R.layout.fragment_game_catch_coin), View
                 person.setImageResource(defaultImage)
             }
         }
-
-    @SuppressLint("ClickableViewAccessibility")
-    override fun onTouch(v: View?, event: MotionEvent): Boolean {
-
-        when (event.actionMasked) {
-            MotionEvent.ACTION_DOWN -> {
-                Log.d("MyLog", "touch1")
-                if (event.x >= display.widthPixels / 2) {
-                    isMovingLeft = false
-                    isMovingRight = true
-                    movePlayer(animRight, MOVE_RIGHT, R.drawable.default_instance)
-                } else {
-                    isMovingRight = false
-                    isMovingLeft = true
-                    movePlayer(animLeft, MOVE_LEFT, R.drawable.default_left)
-                }
-            }
-            MotionEvent.ACTION_POINTER_DOWN -> {
-                Log.d("MyLog", "touch2, ${event.x}")
-                if (event.getX(event.actionIndex) >= display.widthPixels / 2) {
-                    isMovingLeft = false
-                    isMovingRight = true
-                    movePlayer(animRight, MOVE_RIGHT, R.drawable.default_instance)
-                } else {
-                    isMovingRight = false
-                    isMovingLeft = true
-                    movePlayer(animLeft, MOVE_LEFT, R.drawable.default_left)
-                }
-
-            }
-            MotionEvent.ACTION_UP -> {
-                Log.d("MyLog", "touch Up")
-                isMovingLeft = false
-                isMovingRight = false
-            }
-
-        }
-        return true
-    }
 }

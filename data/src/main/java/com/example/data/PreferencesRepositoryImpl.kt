@@ -34,7 +34,7 @@ class PreferencesRepositoryImpl(
     }
 
     override suspend fun getProgress(): Int {
-       return withContext(Dispatchers.IO) {
+        return withContext(Dispatchers.IO) {
             sharedPreferences.getProgress()
         }
     }

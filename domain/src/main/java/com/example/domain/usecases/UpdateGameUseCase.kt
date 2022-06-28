@@ -6,6 +6,7 @@ import com.example.domain.repositories.GameRepository
 interface UpdateGameUseCase {
     suspend fun execute(game: GameDomain)
 }
+
 class UpdateGameUseCaseImpl(
     private val gameRepository: GameRepository
 ) : UpdateGameUseCase {

@@ -28,10 +28,11 @@ class EbniMoleGameFragment : Fragment(R.layout.fragment_game_ebni_mole) {
         }
     }
 
-    private val binding by viewBinding(FragmentGameEbniMoleBinding::bind)
     private var currentScore: Int = 0
     private lateinit var timer: CountDownTimer
     private var timerIsRunning = true
+    private val binding by viewBinding(FragmentGameEbniMoleBinding::bind)
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -52,7 +53,6 @@ class EbniMoleGameFragment : Fragment(R.layout.fragment_game_ebni_mole) {
     private fun initMoleList() = with(binding) {
         val moleList = listOf(mole1, mole2, mole3, mole4, mole5, mole6, mole7, mole8, mole9)
         startGame(moleList)
-
     }
 
     @SuppressLint("SetTextI18n")
@@ -82,7 +82,6 @@ class EbniMoleGameFragment : Fragment(R.layout.fragment_game_ebni_mole) {
             override fun onFinish() {
                 updateTimer()
             }
-
         }
     }
 

@@ -31,18 +31,19 @@ class ChooserGameFragment : Fragment(R.layout.fragment_chooser_game) {
 
     }
 
+    private var rewardedAd: RewardedAd? = null
+    private var coins = 0
     private val binding by viewBinding(FragmentChooserGameBinding::bind)
     private val adapter by lazy { GameAdapter(itemGameListener) }
     private val viewModel by viewModel<ChooserGameFragViewModel>()
-    private var rewardedAd: RewardedAd? = null
-    private var coins = 0
-
     private val itemGameListener = object : ItemGameListener {
+
         override fun onPlayButtonClickListener(game: Game) {
             when (game.id) {
                 1 -> navigator().showEbniMoleGameFragment(
                     game.levels[game.currentDifficulty].text,
-                    game.levels[game.currentDifficulty].value.toLong())
+                    game.levels[game.currentDifficulty].value.toLong()
+                )
                 2 -> navigator().showCatchACoinGameFragment(
                     game.levels[game.currentDifficulty].text,
                     game.levels[game.currentDifficulty].value.toLong()
@@ -74,7 +75,6 @@ class ChooserGameFragment : Fragment(R.layout.fragment_chooser_game) {
         super.onAttach(context)
         MobileAds.initialize(context)
         loadRewordedAd()
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -83,7 +83,6 @@ class ChooserGameFragment : Fragment(R.layout.fragment_chooser_game) {
         setUpClickListeners()
         viewModel.coins.observe(viewLifecycleOwner, {
             coins = it
-
         })
     }
 

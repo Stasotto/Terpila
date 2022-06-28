@@ -18,17 +18,6 @@ class App : Application(), Application.ActivityLifecycleCallbacks {
         registerActivityLifecycleCallbacks(this)
     }
 
-    private fun initKoin() {
-        startKoin {
-            androidContext(this@App)
-            modules(
-                dataModule,
-                domainModule,
-                presentationModule
-            )
-        }
-    }
-
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
         Log.d("MyLog", "onCreate")
     }
@@ -57,4 +46,16 @@ class App : Application(), Application.ActivityLifecycleCallbacks {
     override fun onActivityDestroyed(activity: Activity) {
         Log.d("MyLog", "onDestroy")
     }
+
+    private fun initKoin() {
+        startKoin {
+            androidContext(this@App)
+            modules(
+                dataModule,
+                domainModule,
+                presentationModule
+            )
+        }
+    }
+
 }

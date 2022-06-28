@@ -16,12 +16,12 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class GamesResultFragment : Fragment(R.layout.fragment_games_result) {
+
     private enum class Difficulties {
         EASY,
         YOU_CAN_DO_IT,
         HARD,
         NIGHTMARE
-
     }
 
     companion object {
@@ -39,11 +39,11 @@ class GamesResultFragment : Fragment(R.layout.fragment_games_result) {
             }
     }
 
-    private val binding by viewBinding(FragmentGamesResultBinding::bind)
-    private val viewModel by viewModel<GamesResultFragViewModel>()
     private var coins: Int = 0
     private var record: Int = 0
     private var interAd: InterstitialAd? = null
+    private val binding by viewBinding(FragmentGamesResultBinding::bind)
+    private val viewModel by viewModel<GamesResultFragViewModel>()
     private val interAdCallback = object : InterstitialAdLoadCallback() {
 
         override fun onAdFailedToLoad(p0: LoadAdError) {
@@ -116,7 +116,6 @@ class GamesResultFragment : Fragment(R.layout.fragment_games_result) {
         }
         menu.setOnClickListener {
             showInterAd()
-
         }
     }
 
@@ -146,7 +145,6 @@ class GamesResultFragment : Fragment(R.layout.fragment_games_result) {
                     interAd = null
                     loadInterstitialAd()
                 }
-
             }
             interAd?.show(requireActivity())
         } else {

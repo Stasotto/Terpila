@@ -30,6 +30,22 @@ class ChooserGameFragViewModel(
         loadCoins()
     }
 
+    fun saveCoins(coins: Int) {
+        viewModelScope.launch {
+            saveCoinsCountUseCase.execute(coins)
+        }
+    }
+
+    fun changeDifficultyOfGame(newDifficulty: Int, game: Game) {
+        val gameList = _games.value?.toMutableList() ?: return
+        val index = gameList.indexOf(game)
+        if (index == -1) return
+        gameList[index] = gameList[index].copy(currentDifficulty = newDifficulty)
+        _games.value = gameList
+        updateGame(gameList[index])
+        Log.d("MyLog", "changed")
+    }
+
     private fun loadGames() {
         viewModelScope.launch {
             val result = getGamesUseCase.execute().map { gameDomain ->
@@ -46,16 +62,6 @@ class ChooserGameFragViewModel(
         }
     }
 
-    fun changeDifficultyOfGame(newDifficulty: Int, game: Game) {
-        val gameList = _games.value?.toMutableList() ?: return
-        val index = gameList.indexOf(game)
-        if (index == -1) return
-        gameList[index] = gameList[index].copy(currentDifficulty = newDifficulty)
-        _games.value = gameList
-        updateGame(gameList[index])
-        Log.d("MyLog", "changed")
-    }
-
     private fun saveGames(gameList: List<Game>) {
         viewModelScope.launch {
             saveGamesUseCase.execute(*gameList.map {
@@ -68,18 +74,11 @@ class ChooserGameFragViewModel(
         viewModelScope.launch {
             updateGameUseCase.execute(game.toGameDomain())
         }
-
     }
 
     private fun loadCoins() {
         viewModelScope.launch {
             _coins.value = getCoinsCountUseCase.execute()
-        }
-    }
-
-    fun saveCoins(coins: Int) {
-        viewModelScope.launch {
-            saveCoinsCountUseCase.execute(coins)
         }
     }
 }

@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), Navigator {
     companion object {
         private const val RESULT = "Result"
     }
+
     private var backPressed: Long = 0
 
     private val fragmentLifecycleListener = object : FragmentManager.FragmentLifecycleCallbacks() {
@@ -89,10 +90,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), Navigator {
         supportFragmentManager.registerFragmentLifecycleCallbacks(fragmentLifecycleListener, false)
     }
 
-    private fun openMenuFragment() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_container, MenuFragment.newInstance(), MenuFragment.TAG)
-            .commit()
+    override fun onBackPressed() {
+        if (backPressed + 2000 > System.currentTimeMillis()) {
+            finish()
+        } else {
+            showToast("Press once again to exit")
+        }
+        backPressed = System.currentTimeMillis()
     }
 
     override fun showChooserGameFragment() {
@@ -100,11 +104,17 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), Navigator {
     }
 
     override fun showCatchACoinGameFragment(difficulty: String, spawnDelay: Long) {
-        launchFragment(CatchACoinGameFragment.newInstance(difficulty, spawnDelay),CatchACoinGameFragment.TAG)
+        launchFragment(
+            CatchACoinGameFragment.newInstance(difficulty, spawnDelay),
+            CatchACoinGameFragment.TAG
+        )
     }
 
     override fun showFindACoupleGameFragment(difficulty: String, itemsCount: Int) {
-        launchFragment(FindACoupleGameFragment.newInstance(difficulty, itemsCount),FindACoupleGameFragment.TAG)
+        launchFragment(
+            FindACoupleGameFragment.newInstance(difficulty, itemsCount),
+            FindACoupleGameFragment.TAG
+        )
     }
 
     override fun showRewardDialogFragment(progress: Int) {
@@ -116,12 +126,18 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), Navigator {
         Toast.makeText(this, "Setting", Toast.LENGTH_SHORT).show()
     }
 
-    override fun showEbniMoleGameFragment(difficulty: String,moleSpeed: Long) {
-        launchFragment(EbniMoleGameFragment.newInstance(difficulty,moleSpeed), EbniMoleGameFragment.TAG)
+    override fun showEbniMoleGameFragment(difficulty: String, moleSpeed: Long) {
+        launchFragment(
+            EbniMoleGameFragment.newInstance(difficulty, moleSpeed),
+            EbniMoleGameFragment.TAG
+        )
     }
 
     override fun <T> showGameResultFragment(clazz: Class<T>, difficulty: String, score: Int) {
-        launchFragment(GamesResultFragment.newInstance(clazz, difficulty, score), GamesResultFragment.TAG)
+        launchFragment(
+            GamesResultFragment.newInstance(clazz, difficulty, score),
+            GamesResultFragment.TAG
+        )
     }
 
     override fun goToMenu() {
@@ -135,16 +151,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), Navigator {
     override fun goBack() {
         super.onBackPressed()
     }
-
-    override fun onBackPressed() {
-        if(backPressed + 2000 > System.currentTimeMillis()) {
-            finish()
-        } else {
-            showToast("Press once again to exit")
-        }
-        backPressed = System.currentTimeMillis()
-    }
-
 
     override fun <T> publishResult(key: String, result: T) {
         supportFragmentManager.setFragmentResult(key, bundleOf(RESULT to result))
@@ -175,6 +181,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), Navigator {
             )
             .addToBackStack(tag)
             .replace(R.id.main_container, fragment, tag)
+            .commit()
+    }
+
+    private fun openMenuFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_container, MenuFragment.newInstance(), MenuFragment.TAG)
             .commit()
     }
 }

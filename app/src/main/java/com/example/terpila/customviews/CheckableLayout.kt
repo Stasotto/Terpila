@@ -17,16 +17,6 @@ class CheckableLayout @JvmOverloads constructor(
 
     private val checkableChild: Checkable by lazy { findCheckableChild(this) }
 
-    private fun findCheckableChild(root: ViewGroup): Checkable {
-        for (i in 0 until root.childCount) {
-            val child = root.getChildAt(i)
-            if (child is Checkable) return child
-            if (child is ViewGroup) return findCheckableChild(child)
-        }
-        throw IllegalStateException("Can't find CheckableChild")
-    }
-
-
     override fun setChecked(checked: Boolean) {
         checkableChild.isChecked = checked
     }
@@ -45,5 +35,14 @@ class CheckableLayout @JvmOverloads constructor(
         checkableView.isFocusableInTouchMode = false
         checkableView.isFocusable = false
         checkableView.isClickable = false
+    }
+
+    private fun findCheckableChild(root: ViewGroup): Checkable {
+        for (i in 0 until root.childCount) {
+            val child = root.getChildAt(i)
+            if (child is Checkable) return child
+            if (child is ViewGroup) return findCheckableChild(child)
+        }
+        throw IllegalStateException("Can't find CheckableChild")
     }
 }

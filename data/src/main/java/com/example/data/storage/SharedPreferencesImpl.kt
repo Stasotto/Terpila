@@ -3,6 +3,7 @@ package com.example.data.storage
 import android.content.Context
 
 class SharedPreferencesImpl(private val context: Context) : SharedPreferences {
+
     companion object {
         private const val SHARED_PREF_NAME = "MenuFragment"
         private const val COINS_COUNT_KEY = "Coins"
@@ -31,7 +32,7 @@ class SharedPreferencesImpl(private val context: Context) : SharedPreferences {
     }
 
     override suspend fun saveRecord(className: String, record: Int) {
-        sharedPref.edit().putInt(className,record).apply()
+        sharedPref.edit().putInt(className, record).apply()
     }
 
     override suspend fun getProgress(): Int {
@@ -39,7 +40,7 @@ class SharedPreferencesImpl(private val context: Context) : SharedPreferences {
     }
 
     override suspend fun saveProgress(progress: Int) {
-     sharedPref.edit().putInt(PROGRESS_KEY,progress).apply()
+        sharedPref.edit().putInt(PROGRESS_KEY, progress).apply()
     }
 
     override suspend fun getLevel(): Int {
@@ -49,6 +50,4 @@ class SharedPreferencesImpl(private val context: Context) : SharedPreferences {
     override suspend fun saveLevel(level: Int) {
         sharedPref.edit().putInt(LEVEL_KEY, level).apply()
     }
-
-
 }

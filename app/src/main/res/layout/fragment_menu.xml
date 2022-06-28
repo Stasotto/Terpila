@@ -32,9 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@id/levelTextTv"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/image_of_terpila"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/levelTextTv" />
 
     <TextView
         android:id="@+id/progressTv"

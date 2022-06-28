@@ -6,9 +6,10 @@ import com.example.domain.repositories.GameRepository
 interface SaveGamesUseCase {
     suspend fun execute(vararg game: GameDomain)
 }
+
 class SaveGamesUseCaseImpl(
     private val gameRepository: GameRepository
-): SaveGamesUseCase {
+) : SaveGamesUseCase {
 
     override suspend fun execute(vararg game: GameDomain) {
         gameRepository.save(*game)

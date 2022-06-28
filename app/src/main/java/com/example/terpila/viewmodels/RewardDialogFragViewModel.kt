@@ -28,18 +28,6 @@ class RewardDialogFragViewModel(
         loadProgress()
     }
 
-    private fun loadProgress() {
-        viewModelScope.launch {
-            _progress.value = getProgressUseCase.execute()
-        }
-    }
-
-    private fun loadLevel() {
-        viewModelScope.launch {
-            _level.value = getLevelUseCase.execute()
-        }
-    }
-
     fun saveProgress(progress: Int) {
         viewModelScope.launch {
             saveProgressUseCase.execute(progress)
@@ -49,6 +37,18 @@ class RewardDialogFragViewModel(
     fun saveLevel(level: Int) {
         viewModelScope.launch {
             saveLevelUseCase.execute(level)
+        }
+    }
+
+    private fun loadProgress() {
+        viewModelScope.launch {
+            _progress.value = getProgressUseCase.execute()
+        }
+    }
+
+    private fun loadLevel() {
+        viewModelScope.launch {
+            _level.value = getLevelUseCase.execute()
         }
     }
 }

@@ -8,6 +8,7 @@ import com.example.domain.usecases.*
 import org.koin.dsl.module
 
 val domainModule = module {
+
     single<GetCoinsCountUseCase> {
         GetCoinsCountUseCaseImpl(repository = get())
     }
@@ -43,7 +44,7 @@ val domainModule = module {
         GetRecordUseCaseImpl(preferencesRepository = get())
     }
 
-    single<GetLevelUseCase>{
+    single<GetLevelUseCase> {
         GetLevelUseCaseImpl(preferencesRepository = get())
     }
 
@@ -58,5 +59,4 @@ val domainModule = module {
     single<SaveProgressUseCase> {
         SaveProgressUseCaseImpl(preferencesRepository = get())
     }
-
 }
